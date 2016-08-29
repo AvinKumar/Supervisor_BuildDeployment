@@ -1,0 +1,52 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Test;
+
+import Reporting.GetDate;
+import atu.testng.reports.ATUReports;
+import atu.testng.reports.listeners.ATUReportsListener;
+import atu.testng.reports.listeners.ConfigurationListener;
+import atu.testng.reports.listeners.MethodListener;
+import environmentsetup.DropNPDBs;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.annotations.Listeners;
+
+/**
+ *
+ * @author Avin
+ */
+
+@Listeners({ATUReportsListener.class, ConfigurationListener.class,
+    MethodListener.class})
+
+public class TestDeleteNPDBs 
+{
+DropNPDBs drop = new DropNPDBs();
+static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(TestDeleteNPDBs.class.getName());
+   
+
+@Test
+public void TestDropNPDBs()
+    {
+        try
+        {
+       Assert.assertEquals(drop.dropNPDatabase(),0);
+       log.info("Supervisor Nightly Push Databases have been deleted...!!!");
+       ATUReports.setAuthorInfo("Supervisor Automation Team", GetDate.getdate(), "1.0");
+       ATUReports.add("Drop NP DBs",false);
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            log.info("Error deleting Supervisor Nightly Push Databases. Please Investigate...!!!");
+            ATUReports.setAuthorInfo("Supervisor Automation Team", GetDate.getdate(), "1.0");
+            ATUReports.add("Drop NP DBs", false);
+            Assert.fail("");
+        }
+    }
+}
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="NP BVT Environment" verbose="1" parallel="false" preserve-order="true">
+ <parameter name="config-file" value="conf/configRAP.properties/"/>
+ 
+ 
+  <test name="Start App Services"> 
+    <classes>
+            
+		<class name="Test.TestStartService"></class> 
+       
+
+    </classes>
+  </test>
+
+ <!--
+ <listeners>
+   <listener class-name="atu.testng.reports.listeners.ATUReportsListener"></listener>
+  <listener class-name="atu.testng.reports.listeners.ConfigurationListener"></listener>
+  <listener class-name="atu.testng.reports.listeners.MethodListener"></listener>
+ </listeners>
+-->
+</suite>

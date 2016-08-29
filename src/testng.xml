@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="BVT Automation Environment" verbose="1" parallel="false" preserve-order="true">
+ <parameter name="config-file" value="conf/config.properties/"/>
+ 
+
+  <test name="Nightly Push Build Deployment"> <!-- Edit the test name appropriately for the features that will be executed -->
+    <classes>
+			<class name="Test.TestBuildCopy"></class> 
+            <class name="Test.TestStopService"></class>
+            <class name="Test.TestBKUPNPDBs"></class> 
+            <class name="Test.TestDeleteNPDBs"></class>
+            <class name="Test.TestRestoringNPDBs"></class>
+            <class name="Test.TestInstallBuild"></class> 
+            <class name="Test.TestStartService"></class>
+            <class name="Test.TestUserGroupMapping"></class>
+            <class name="Test.TestMessagePush"></class>
+ 
+
+            
+    </classes>
+  </test>
+ 
+  <!-- 
+    <test name="RAP Build Deployment"> 
+    <classes>
+        <class name="Test.TestBuildCopy"></class>
+            <class name="Test.TestStopService"></class>
+            <class name="Test.TestBKUPRAPDBs"></class> 
+            <class name="Test.TestDeleteRAPDBs"></class>
+            <class name="Test.TestRestoringRAPDBs"></class>
+            <class name="Test.TestInstallBuild"></class>
+            <class name="Test.TestStartService"></class>
+            <class name="Test.TestUserGroupMapping"></class>
+            <class name="Test.TestMessagePush"></class>
+    </classes>
+  </test>
+-->
+ <!--
+ <listeners>
+   <listener class-name="atu.testng.reports.listeners.ATUReportsListener"></listener>
+  <listener class-name="atu.testng.reports.listeners.ConfigurationListener"></listener>
+  <listener class-name="atu.testng.reports.listeners.MethodListener"></listener>
+ </listeners>
+-->
+</suite>

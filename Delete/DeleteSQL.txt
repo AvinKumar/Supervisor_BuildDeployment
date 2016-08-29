@@ -1,0 +1,3 @@
+Select count (*) from [QASIB2].[dbo].[AuditSearch]
+
+--:CONNECT 10.0.92.1 -U sa -P p@ssw0rd

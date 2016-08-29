@@ -1,0 +1,26 @@
+Have made changes in the LDAPSync.sh file. Replaced the ldif file with a new one. Now the same needs to verified whether the ldif file "testdomain1-DSmailUsers-template.ldif" is physically present in QASIB2. In QASIB1 it is present.
+
+
+BuildCopy2QASIB--> once the 9.3 branched out i need to make changes in the shell scripts to search for 9.3 latest builds. As of now it looks for 9.2 latest builds
+
+RestoreDB.sql--> Need to make changes in the RestoreDb sql file to provide the path of the required database that needs to be restored.
+
+
+Workflow
+-Copybuild
+-StopAppServices
+-BKNPDBs
+-DropNPDBs
+-RestoreNPDBs
+-Installapp
+-StartAppServices
+-LDAPSync
+
+Shell script to copy build will be executed from 'prashantm@KAHUNA:/avin/avin_shellscripts/' directory so any changes to the shell scripts should be copied in unix format to the specified location.
+
+
+
+
+
+
+

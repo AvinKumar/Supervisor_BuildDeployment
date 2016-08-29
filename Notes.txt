@@ -1,0 +1,5 @@
+In testng.xml and in ReadEnvProperties.java class files we need to provide the proper properties file from conf folder.
+
+NP--> configNP.properties
+RAP--> configRAP.properties
+Any--> config.properties
