@@ -1,6 +1,7 @@
 #!/bin/sh
-# v1.0 25/04/2016 
-#author: Avin
+# v1.0 25/04/2016
+# v2.0 08/12/2016
+# author: Avin
 
 echo "~~~~~~~~~~~~~~~~~~~~ LDAP Users sync ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 
@@ -30,5 +31,20 @@ echo "";
 echo "~~~~~~~~~~~~~ Initiating copy of LDAP data from import directory. ~~~~~~~~~~~~~~~~~~~~";
 /opt/identitytools/tools/applyNewEntries.sh testdomain1;"
 
+
 echo "";
-echo "~~~~~~~~~~~~~ LDAP Users sync process is completed ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+echo "~~~~~~~~~~~~~~~ Refresh PBJ cache ~~~~~~~~~~~~~~~~";
+
+ssh root@10.0.70.1 "echo''; echo 'Executing the following command to refresh the cache value ==>';
+echo 'export JAVA_HOME=/usr/java; /opt/jboss.8090/bin/twiddle.sh -s localhost:9990 invoke Zantaz:name=IdentityProvider refreshIdentityCache testdomain1';
+echo 'Output:';
+export JAVA_HOME=/usr/java; /opt/jboss.8090/bin/twiddle.sh -s localhost:9990 invoke Zantaz:name=IdentityProvider refreshIdentityCache testdomain1;
+echo '';
+echo 'The following command will show the cache value ==>';
+echo 'export JAVA_HOME=/usr/java; /opt/jboss.8090/bin/twiddle.sh -s localhost:9990 invoke Zantaz:name=IdentityProvider refreshIdentityCache testdomain1';
+echo 'Output:';
+export JAVA_HOME=/usr/java; /opt/jboss.8090/bin/twiddle.sh -s localhost:9990 invoke Zantaz:name=IdentityProvider showCurrentCacheVersion testdomain1;"
+
+
+echo "";
+echo "~~~~~~~~~~~~~~~~~~~~~ LDAP Users sync process is completed ~~~~~~~~~~~~~~~~~~~~~~~~~~";
